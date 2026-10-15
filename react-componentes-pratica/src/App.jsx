@@ -1,121 +1,38 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
+import Titulo from './Titulo'
+import Aluno from './Aluno'
+import Nota from './Nota'
+import Produto from './Produto'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
+      
+      <Titulo />
 
-      <div className="ticks"></div>
+      <h2>Alunos - Reutilizando componente</h2>
+      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        <Aluno nome="Carlos" turma="Desenvolvimento de Sistemas" />
+        <Aluno nome="Ana" turma="DS" />
+        <Aluno nome="Pedro" turma="DS" />
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <h2 style={{ marginTop: '30px' }}>Notas</h2>
+      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        <Nota disciplina="React" nota={8.5} />
+        <Nota disciplina="Banco de Dados" nota={9.0} />
+        <Nota disciplina="Lógica" nota={7.5} />
+      </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <h2 style={{ marginTop: '30px' }}>Produtos</h2>
+      <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+        <Produto nome="Teclado Mecânico" descricao="Teclado com iluminação RGB" preco={250} disponivel={true} />
+        <Produto nome="Mouse sem fio" descricao="Mouse recarregável" preco={120} disponivel={true} />
+        <Produto nome="Monitor 24'" descricao="Monitor Full HD 144Hz" preco={890} disponivel={false} />
+        <Produto nome="Headset Gamer" descricao="Headset com microfone" preco={199} disponivel={true} />
+      </div>
+
+    </div>
   )
 }
 
